@@ -1,7 +1,7 @@
 # ConferenceApi
 Service is built on .Net Core 2.1. 
 1.	.Net Core 2.1 Api it connects through service and calls the Azure Api
-2.	To run the Api,new instance can be run or F5 will run the api, it will run on port 7000 and https on 7001,
+2.	To run the Api,new instance can be run or F5 will run the api, it will run on port http://localhost:7000 and https://localhost:7001,
 3.	Api controller test cases are written using XUnit
 4.  Basic Authentication is used using custom implementation of AuthenticationHandler
 5. Global Exception Handler is written using Extension method on IApplicationBuilder
@@ -9,7 +9,7 @@ Service is built on .Net Core 2.1.
 ## Swagger 
 
 .Net core api is configured with swagger URL 
-Run the instance of Training Api and use below link for swagger
+Run the instance of Conference Api and use below link for swagger
 
 https://locahost:7001/swagger
 
