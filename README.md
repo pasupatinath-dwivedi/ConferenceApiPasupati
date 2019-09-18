@@ -19,5 +19,4 @@ http://locahost:7000/swagger
 Action | Method | Route
 ------------ | ------------- |--------
 speakersandsessions	|GET request. Returns success message and statuscode and json object array.	| api/v1/conference/speakersandsessions
-
-Get	|GET request. Returns success message and statuscode and json object of session detail.	| api/v1/conference/session/{id}
+GetAsync |GET request. Returns success message and statuscode and json object of session detail.| api/v1/conference/session/{id}
