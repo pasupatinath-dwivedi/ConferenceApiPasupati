@@ -1,5 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using ConferenceApi.Controllers;
 using ConferenceServiceLibs;
 using Moq;

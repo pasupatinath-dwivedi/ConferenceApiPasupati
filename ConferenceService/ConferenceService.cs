@@ -18,6 +18,7 @@ namespace ConferenceServiceLibs
             {
                 SessionDetail = await result.Content.ReadAsStringAsync()
             });
+            // call only if there is a valid session detail available
             if (result.StatusCode == System.Net.HttpStatusCode.OK)
             {
                 var sessions = await GetAllSessions();
