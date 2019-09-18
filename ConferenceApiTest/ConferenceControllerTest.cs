@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 using ConferenceApi.Controllers;
-using ConferenceServiceLibs;
+using ConferenceApi;
 using Moq;
 using Newtonsoft.Json.Linq;
 using Xunit;
@@ -18,10 +18,10 @@ namespace ConferenceApiTest
 
             var controller = new ConferenceController(mockConferenceService.Object);
 
-            //Act  
+           // Act
             var data = await controller.SpeakersAndSessionsAsync();
 
-            //Assert  
+           // Assert
             Assert.IsType<Microsoft.AspNetCore.Mvc.OkObjectResult>(data);
         }
 
@@ -30,10 +30,10 @@ namespace ConferenceApiTest
         {
             //Arrange
             var mockConferenceService = new Mock<IConferenceService>();
-        
+
             mockConferenceService.Setup(service => service.GetSessionByIdAsync(It.IsAny<int>())).ReturnsAsync(new JObject());
 
-            var controller = new ConferenceController(mockConferenceService.Object);
+             var controller = new ConferenceController(mockConferenceService.Object);
             int id = 100;
             //Act  
 
@@ -48,7 +48,7 @@ namespace ConferenceApiTest
         {
             //Arrange
             var mockConferenceService = new Mock<IConferenceService>();
- 
+
             mockConferenceService.Setup(service => service.GetSessionByIdAsync(It.IsAny<int>())).ReturnsAsync(new JObject());
 
             var controller = new ConferenceController(mockConferenceService.Object);

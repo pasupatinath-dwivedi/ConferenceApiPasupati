@@ -1,11 +1,9 @@
-﻿using ConferenceApi.Extensions;
+﻿using ConferenceApi.Common;
+using ConferenceApi.Extensions;
 using ConferenceApi.Helper;
-using ConferenceServiceLibs;
 using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Swashbuckle.AspNetCore.Swagger;
@@ -37,6 +35,7 @@ namespace ConferenceApi
             });
 
             services.AddTransient<IConferenceService,ConferenceService>();
+            services.AddHttpClient<ICustomAzureHttpClient, CustomAzureHttpClient>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

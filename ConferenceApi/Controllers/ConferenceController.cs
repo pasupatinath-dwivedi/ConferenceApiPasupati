@@ -1,5 +1,5 @@
-﻿using ConferenceServiceLibs;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
@@ -21,6 +21,7 @@ namespace ConferenceApi.Controllers
         //  GET: api/v1/ConferenceApi/SpeakerAndSessions
        
         [HttpGet("speakersandsessions")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> SpeakersAndSessionsAsync(string speakerName = null, string dayno = null, string keyword = null)
         {
             return new OkObjectResult(await _conferenceService.GetSpeakersAndSessionsAsync(speakerName, dayno, keyword));

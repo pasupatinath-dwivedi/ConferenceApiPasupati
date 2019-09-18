@@ -12,8 +12,4 @@
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.1" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\ConferenceService\ConferenceServiceLibs.csproj" />
-  </ItemGroup>
-
 </Project>
