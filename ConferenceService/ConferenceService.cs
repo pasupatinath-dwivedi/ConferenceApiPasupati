@@ -22,13 +22,13 @@ namespace ConferenceServiceLibs
             {
                 var sessions = await GetAllSessions();
                 string filter = $"/session/{id}";
-                List<JToken> categories = sessions["collection"]["items"].Children().ToList();
+                List<JToken> linkHrefs = sessions["collection"]["items"].Children().ToList();
                 JToken element = null;
-                foreach (var category in categories)
+                foreach (var hrefItem in linkHrefs)
                 {
-                    if (category["href"].ToString().Contains(filter))
+                    if (hrefItem["href"].ToString().Contains(filter))
                     {
-                        element = category;
+                        element = hrefItem;
                         break;
                     }
                 }
@@ -40,19 +40,6 @@ namespace ConferenceServiceLibs
                );
             }
             return sessionData;
-        }
-
-        private async Task<HttpResponseMessage> GetSessionById(int id)
-        {
-            using (var client = new HttpClient())
-            {
-                // Request headers add ocp-apim key
-                client.DefaultRequestHeaders.Add(DemoConferenceHelper.OcpApimKey, DemoConferenceHelper.SubscriptionKey);
-
-                var uri = string.Concat(DemoConferenceHelper.DemoConferenceBaseUrl, DemoConferenceHelper.DemoConferenceSessionByIdPart, id);
-                var response = await client.GetAsync(uri);
-                return response;
-            }
         }
 
         public async Task<JObject> GetSpeakersAndSessionsAsync(string speakerName = null, string dayno = null, string keyword = null)
@@ -123,6 +110,20 @@ namespace ConferenceServiceLibs
                 return await GetJsonObject(response);
             }
 
+        }
+
+        private async Task<HttpResponseMessage> GetSessionById(int id)
+        {
+            using (var client = new HttpClient())
+
+            {
+                // Request headers add ocp-apim key
+                client.DefaultRequestHeaders.Add(DemoConferenceHelper.OcpApimKey, DemoConferenceHelper.SubscriptionKey);
+
+                var uri = string.Concat(DemoConferenceHelper.DemoConferenceBaseUrl, DemoConferenceHelper.DemoConferenceSessionByIdPart, id);
+                var response = await client.GetAsync(uri);
+                return response;
+            }
         }
     }
 }
