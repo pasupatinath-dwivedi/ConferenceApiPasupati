@@ -29,7 +29,6 @@ namespace ConferenceApi.Common
                 queryString["dayno"] = dayno;
                 queryString["keyword"] = keyword;
 
-                var uri = string.Concat(DemoConferenceHelper.DemoConferenceBaseUrl, DemoConferenceHelper.DemoConferenceAllSessionPart, queryString);
 
                 var response = await _httpClient.GetAsync(DemoConferenceHelper.DemoConferenceAllSessionPart + queryString);
                 return await GetJsonObject(response);
