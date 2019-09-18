@@ -11,7 +11,7 @@ Service is built on .Net Core 2.1.
 .Net core api is configured with swagger URL 
 Run the instance of Training Api and use below link for swagger
 
-http://locahost:7000/swagger
+https://locahost:7001/swagger
 
 
 ## List of service api
